@@ -4,20 +4,17 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
 const presnetationRoute = require('./routes/presentation');
+const projectRoute = require('./routes/projects');
 
 
 
 const app = express();
 
 mongoose.connect('mongodb://localhost/presentation', {
-<<<<<<< HEAD
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
     useCreateIndex: true, 
     useFindAndModify: false
-=======
-    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
->>>>>>> 0b0f8729b47e192b9bdd628a3c8c94e2feb9532c
 })
 .then(() => console.log("Connexion à MongoDB réussie"))
 .catch(() => console.log("connexion à MongoDB échouée"));
@@ -38,5 +35,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 app.use('/api', presnetationRoute);
+app.use('/api', projectRoute);
 
 module.exports = app;
