@@ -9,8 +9,11 @@ const presnetationRoute = require('./routes/presentation');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/presnetation', {
-    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
+mongoose.connect('mongodb://localhost/presentation', {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    useCreateIndex: true, 
+    useFindAndModify: false
 })
 .then(() => console.log("Connexion à MongoDB réussie"))
 .catch(() => console.log("connexion à MongoDB échouée"));
