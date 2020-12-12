@@ -5,8 +5,9 @@ const methodOverride = require('method-override');
 const path = require('path');
 const cors = require('cors');
 
-const presnetationRoute = require('./routes/presentation');
+const presentationRoute = require('./routes/presentation');
 const projectRoute = require('./routes/projects');
+const userRoute = require('./routes/users');
 
 
 
@@ -27,7 +28,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.use('/api', presnetationRoute);
+app.use('/api', presentationRoute);
 app.use('/api', projectRoute);
+app.use('/api', userRoute);
 
 module.exports = app;
