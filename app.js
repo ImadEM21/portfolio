@@ -8,7 +8,7 @@ const cors = require('cors');
 const presentationRoute = require('./routes/presentation');
 const projectRoute = require('./routes/projects');
 const userRoute = require('./routes/users');
-
+const messageRoute = require('./routes/messages');
 
 
 const app = express();
@@ -31,5 +31,6 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api', presentationRoute);
 app.use('/api', projectRoute);
 app.use('/api', userRoute);
+app.use('/api', messageRoute);
 
 module.exports = app;
