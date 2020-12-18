@@ -6,7 +6,7 @@ import { Link } from 'react-scroll';
 const Header = (props) => {
     
     return (
-        <section id="header" className="container-fluid p-5 m-0 gradient-header">
+        <section id="header" className="container-fluid p-md-5 py-5 m-0 gradient-header">
             <div className="row mt-4 mx-auto">
                 <div className="col-12 d-block">
                     <FontAwesomeIcon icon={faCloud} size="5x" style={{color: "white"}}/>
@@ -23,15 +23,15 @@ const Header = (props) => {
             <div className="row mx-auto mt-2 w-50">
                 <div className="col-12 d-block">
                     <p>
-                        Vous trouverez ici une présentation ainsi que des réalisations,
-                        les technologies sur lesquelles j'ai travailler ainsi que mes formations.
+                        Vous trouverez ici une présentation, mes projets réalisés et les langages sur lesquels
+                        j'ai travaillé. 
                     </p>
                 </div>
             </div>
             <div className="row mb-4 mx-auto mt-2 w-50">
                 <div className="col-12 d-block">
                     <button type="button" className="btn btn-outline-light btn-block rounded-0 liaison">
-                        <Link activeClass="active" to="one" spy={true} smooth={true}>Découvrir</Link>
+                        <Link activeClass="active" to="presentation" spy={true} smooth={true}>Découvrir</Link>
                     </button>
                 </div>
             </div>

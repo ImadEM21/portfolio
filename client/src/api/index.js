@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const token = sessionStorage.getItem('token');
+const token = sessionStorage.getItem('connexion-and-auth-imad-667');
 
 axios.defaults.headers.common = {'Authorization': `Bearer ${token}`};
 

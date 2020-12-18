@@ -7,7 +7,7 @@ class Footer extends React.Component {
    
     render() { 
         return ( 
-            <section id="footer" className="container-fluid gradient-footer p-5">
+            <section id="footer" className="container-fluid gradient-footer p-md-5 py-5">
                 <div className="row mt-2">
                     <div className="col-12 mb-2">
                         <ul className="list-group d-flex flex-row justify-content-center mt-4">
@@ -22,7 +22,7 @@ class Footer extends React.Component {
                                 </a>
                             </li>
                             <li className="mx-4">
-                                <a href="mailto:imad.elmahrad98@gmail.com" className="icon-hover">
+                                <a href="mailto:contact@imadelmahrad.com" className="icon-hover">
                                     <FontAwesomeIcon icon={faEnvelope} size="2x"/>
                                 </a>
                             </li>

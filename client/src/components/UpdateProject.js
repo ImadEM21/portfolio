@@ -6,8 +6,24 @@ class UpdateProject extends Component {
         super(props);
         this.state = { 
             image: null,
-
+            techno: '',
+            stack: []
          }
+    }
+
+    handleKeyPress = e => {
+        if (e.charCode === 32) {
+            this.state.stack.push(this.state.techno);
+            this.setState({
+                techno: ''
+            });
+        }
+    }
+
+    handleChange = e => {
+        this.setState({
+            techno: e.target.value
+        })
     }
 
 
@@ -25,6 +41,7 @@ class UpdateProject extends Component {
         data.append('description', e.target.description.value);
         data.append('repoGithub', e.target.repoGithub.value);
         data.append('url', e.target.url.value);
+        data.append('stack', this.state.stack)
         if (this.state.image !== null) {
             data.append('image', this.state.image);
         }
@@ -54,8 +71,31 @@ class UpdateProject extends Component {
                 </div>
                 <div className="form-group">
                     <label htmlFor="url">Url: </label>
-                    <input type="url" id="url" className="form-control" name="url"
+                    <input type="url" id="url" className="form-control"
                     defaultValue={this.props.project.url}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="stack">Technologies: </label>
+                    <input type="text" id="stack" className="form-control" multiple list="updateStack"
+                    onKeyPress={this.handleKeyPress}
+                    onChange={this.handleChange}
+                    value={this.state.techno}/>
+                    <datalist id="updateStack">
+                        <option value="JavaScript" />
+                        <option value="NodeJS" />
+                        <option value="MongoDB" />
+                        <option value="HTML" />
+                        <option value="CSS" />
+                        <option value="ReactJS" />
+                        <option value="PHP" />
+                        <option value="MySQL" />
+                        <option value="Symfony" />
+                        <option value="VueJS" />
+                        <option value="Bootstrap" />
+                    </datalist>
+                    {this.state.stack.map((techno, i) => {
+                        return <span key={i +1} className="border mx-1"> {techno} </span>
+                    })}
                 </div>
                 <div className="form-group">
                     <label htmlFor="image">Image: </label>

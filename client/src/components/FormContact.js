@@ -1,5 +1,6 @@
 import React from 'react';
 import apis from '../api/index';
+import { Alert } from 'react-bootstrap';
 
 class FormContact extends React.Component {
     constructor(props) {
@@ -10,7 +11,9 @@ class FormContact extends React.Component {
             name: '',
             company: '',
             email: '',
-            message: ''
+            message: '',
+            isMessageSent: false,
+            messageError: false
         }
 
     }
@@ -37,15 +40,20 @@ class FormContact extends React.Component {
 
         apis.postMessage(message)
         .then(res => {
-            alert('Votre message a bien été envoyé');
             this.setState({
                 name: '',
                 company: '',
                 email: '',
-                message: ''
+                message: '',
+                isMessageSent: true
             });
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            console.error(error.response);
+            this.setState({
+                messageError: true
+            });
+        });
     }
     
     render() {
@@ -102,6 +110,16 @@ class FormContact extends React.Component {
                     />
                 </div>
                 <button type="submit" className="btn btn-block btn-outline-light rounded-0">Envoyer</button>
+                {this.state.isMessageSent ? 
+                    <Alert variant="success" onClose={() => this.setState({isMessageSent: false})} dismissible className="mt-3">
+                        Merci pour votre message ! Il a bien été envoyé 👌.
+                    </Alert>
+                : null}
+                {this.state.messageError ?
+                    <Alert variant="danger" onClose={() => this.setState({messageError: false})} dismissible className="mt-5">
+                        Une erreur s'est produite ! Le message n'a pas été envoyé 😯.
+                    </Alert>
+                : null}
             </form>
         )
     };

@@ -27,7 +27,7 @@ class Contact extends React.Component {
     
     render() { 
         return ( 
-            <section id="four" className="container-fluid bg-secondary p-5">
+            <section id="four" className="container-fluid bg-secondary p-md-5 py-5">
                 <div className="row mt-5">
                     <div className="col-12">
                         <header className="major">

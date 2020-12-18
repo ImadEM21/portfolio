@@ -23,7 +23,7 @@ class App extends React.Component {
 
   componentDidMount = () => {
     document.title = "Imad Elmahrad";
-    if (sessionStorage.getItem('token') !== null) {
+    if (sessionStorage.getItem('connexion-and-auth-imad-667') !== null) {
       this.setState({
         isLogged: true
       });

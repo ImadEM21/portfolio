@@ -24,10 +24,19 @@ class Auth extends React.Component {
 
         await apis.authUser(user)
         .then(res => {
-            sessionStorage.setItem('token', res.data.token);
+            sessionStorage.setItem('connexion-and-auth-imad-667', res.data.token);
             window.location.replace('http://localhost:8000');
+            
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            if (error.response.status === 404) {
+                alert('Utilisateur pas trouvé');
+            } else if (error.response.status === 401) {
+                alert('Mot de passe incorrecte');
+            } else {
+                console.error(error.message);
+            }
+        });
     }
 
     render() { 

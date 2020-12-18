@@ -1,23 +1,26 @@
 import React from 'react';
-import photo from '../images/presentation-1.png';
+import photo from '../images/image.jpeg';
 
 const Presentation = props => {
     return (
-        <section id="one" className="container-fluid bg-white p-5">
+        <section id="presentation" className="container-fluid bg-white p-md-5 py-5">
             <div className="row my-5">
                 <div className="col-12 col-md-6">
                     <header className="major">
                         <h2>
-                            Passionné de développement web et de technologie en général
+                            Développement web
                         </h2>
                     </header>
-                    <p>
-                        Mon but étant de faire de ma passion mon métier, mon objectif est de passer d'un développeur 
-                        no-stack à full-stack. Et aujourd'hui je suis en mesure de créer un site de A à Z comme celui-ci.
+                    <p style={{fontSize: 'larger'}} className="text-justify">
+                        Comme vous vous en doutez le développement web c'est quelque chose que j'apprécie 
+                        particulièrement. C'est donc pour ça que j'ai décidé d'en faire mon métier et participer à 
+                        des projets bien plus grands.<br /><br /> 
+                        Pas encore convaincu ? Alors n'hésitez pas à lire la suite, 
+                        vous avez peut être trouvé le développeur web qu'il vous faut !
                     </p>
                 </div>
                 <div className="col-12 col-md-6">
-                    <span className="m-auto p-0"><img src={photo} alt="" className="w-100 h-100"/></span>
+                    <img src={photo} alt="" className="w-100 h-100"/>
                 </div>
             </div>
         </section>

@@ -17,10 +17,6 @@ class Projects extends React.Component {
         this.updateProjects();
     };
 
-    componentDidUpdate = () => {
-        this.updateProjects();
-    }
-
 
     updateProjects = async () => {
         await apis.getAllProjects()
@@ -62,11 +58,11 @@ class Projects extends React.Component {
 
     render() { 
         return ( 
-            <section id="three" className="container-fluid bg-white p-5">
+            <section id="three" className="container-fluid bg-white p-md-5 py-5">
                 <div className="row mt-5">
                     <div className="col-12 ">
                         <header className="major">
-                            <h2>Voici mes projets</h2>
+                            <h2>Projets réalisés</h2>
                         </header>
                         <p>
                             Vous trouverez ci dessous les différents projets que j'ai pu réaliser.

@@ -40,6 +40,13 @@ body {
     text-align: center;
 }
 
+@media screen and (max-width: 960px) {
+    .gradient-header {
+        background-attachment: scroll;
+    }
+}
+
+
 .liaison {
     -moz-justify-content: center;
     -webkit-justify-content: center;
@@ -81,9 +88,23 @@ li {
     list-style: none;
 }
 
+#technologies p {
+    text-align: justify;
+}
+
 .no-bg {
     background-color: transparent !important;
 }
+
+.link-body {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+    .link-body:hover {
+        color: #FFF;
+        font-weight: bold;
+    }
 
 .icon-height {
     height: max-content;
@@ -154,7 +175,7 @@ header.major {
 }
 
 
-#one {
+#presentation {
     header.major::after {
         background: rgba(144, 144, 144, 0.5);
         content: '';
@@ -165,7 +186,7 @@ header.major {
     }
 }
 
-#one, #three {
+#presentation, #three {
     h1, h2, h3, h4, h5, h6 {
         color: #555;
     }
@@ -175,7 +196,7 @@ header.major {
     }
 }
 
-#two, #four {
+#technologies, #four { 
     p {
         color: rgba(255, 255, 255, 0.75);
     }
@@ -185,7 +206,7 @@ header.major {
     }
 }
 
-#two {
+#technologies {
     header.major:after {
         background: #fff;
         content: '';
@@ -225,6 +246,12 @@ header.major {
     text-align: center;
 }
 
+@media screen and (max-width: 960px) {
+    .gradient-footer {
+        background-attachment: scroll;
+    }
+}
+
 
 /* Auth */
 
@@ -244,6 +271,7 @@ header.major {
     letter-spacing: 20px;
     background: url('../images/bg.jpg') center no-repeat;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
 }
 
@@ -251,4 +279,12 @@ header.major {
     .not-found {
         font-size: 130px;
     } 
+}
+
+
+/* Project */
+
+.styled-li {
+    list-style: square;
+    text-align: start;
 }

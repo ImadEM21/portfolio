@@ -15,10 +15,7 @@ class Messages extends React.Component {
     componentDidMount = () => {
         this.getMessages();
     };
-
-    componentDidUpdate = () => {
-        this.getMessages();
-    }
+    
 
     getMessages = async () => {
         await apis.getMessages()
@@ -32,7 +29,10 @@ class Messages extends React.Component {
 
     deleteMessage = async id => {
         await apis.deleteMessage(id)
-        .then(res => alert('Message supprimé avec succès'))
+        .then(res => {
+            alert('Message supprimé avec succès');
+            window.location.reload();
+        })
         .catch(error => console.error(error));
     };
 

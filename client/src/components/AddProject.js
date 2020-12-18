@@ -5,7 +5,9 @@ class AddProject extends Component {
    constructor(props) {
        super(props)
        this.state = {
-           image: null
+           image: null,
+           techno: '',
+           stack: []
        }
    }
 
@@ -19,6 +21,21 @@ class AddProject extends Component {
             image: file
         });
     };
+
+    handleKeyPress = e => {
+        if (e.charCode === 32) {
+            this.state.stack.push(this.state.techno);
+            this.setState({
+                techno: ''
+            });
+        }
+    }
+
+    handleChange = e => {
+        this.setState({
+            techno: e.target.value
+        })
+    }
     
     addProject = async (e) => {
         e.preventDefault();
@@ -29,6 +46,7 @@ class AddProject extends Component {
         data.append('repoGithub', e.target.repoGithub.value);
         data.append('url', e.target.url.value);
         data.append('image', this.state.image);
+        data.append('stack', this.state.stack);
 
         await apis.createProject(data)
         .then(res => {
@@ -56,6 +74,29 @@ class AddProject extends Component {
                 <div className="form-group">
                     <label htmlFor="url">Url: </label>
                     <input type="url" id="url" className="form-control" />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="stack">Technologies</label>
+                    <input type="text" className="form-control" id="stack" multiple list="techno" 
+                    onKeyPress={this.handleKeyPress} 
+                    value={this.state.techno}
+                    onChange={this.handleChange}/>
+                    <datalist id="techno">
+                        <option value="JavaScript" />
+                        <option value="NodeJS" />
+                        <option value="MongoDB" />
+                        <option value="HTML" />
+                        <option value="CSS" />
+                        <option value="ReactJS" />
+                        <option value="PHP" />
+                        <option value="MySQL" />
+                        <option value="Symfony" />
+                        <option value="VueJS" />
+                        <option value="Bootstrap" />
+                    </datalist>
+                    {this.state.stack.map((techno, i) => {
+                        return <span key={i +1} className="border mx-1"> {techno} </span>
+                    })}
                 </div>
                 <div className="form-group">
                     <label htmlFor="image">Image: </label>

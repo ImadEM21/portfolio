@@ -5,7 +5,8 @@ const fs = require('fs');
 exports.createProject = (req, res) => {
     const project = new Project({
         ...req.body,
-        image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+        image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+        stack: req.body.stack.split(',')
     });
     project.save()
     .then(() => res.status(201).json({message: "Projet crée avec succès"}))
@@ -31,8 +32,9 @@ exports.updateProject = (req, res) => {
     const project = req.file ? 
     {
         ...req.body,
-        image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-    } : { ...req.body };
+        image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+        stack: req.body.stack.split(',')
+    } : { ...req.body, stack: req.body.stack.split(',') };
 
     Project.findByIdAndUpdate(req.params.id, {...project, _id: req.params.id})
     .then(() => res.status(200).json({message: "Projet modifié avec succès"}))
