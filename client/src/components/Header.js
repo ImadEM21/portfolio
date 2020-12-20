@@ -30,9 +30,9 @@ const Header = (props) => {
             </div>
             <div className="row mb-4 mx-auto mt-2 w-50">
                 <div className="col-12 d-block">
-                    <button type="button" className="btn btn-outline-light btn-block rounded-0 liaison">
-                        <Link activeClass="active" to="presentation" spy={true} smooth={true}>Découvrir</Link>
-                    </button>
+                    <Link activeClass="active" to="presentation" spy={true} smooth={true} className="btn btn-outline-light btn-block rounded-0 liaison">
+                        Découvrir
+                    </Link>
                 </div>
             </div>
         </section>
