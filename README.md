@@ -1,4 +1,4 @@
-# Bienvenus sur mon portfolio
+# Bienvenue sur mon portfolio
 
 Vous trouverez ici quelques petites consignes pour utiliser le projet en local et quelques informations sur la réaslisation de ce projet.
 
